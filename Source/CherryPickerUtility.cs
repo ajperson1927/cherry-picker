@@ -363,7 +363,7 @@ namespace CherryPicker
 							//Omits from migration event
 							thingDef.race.herdMigrationAllowed = false;
 							//For farm animal joins event
-							thingDef.race.wildness = 1f;
+							thingDef.SetStatBaseValue(StatDefOf.Wildness, 1f);
 							//Spawn chance
 							if (thingDef.race.wildBiomes != null)
 							{

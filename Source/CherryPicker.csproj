@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<Product>Cherry Picker</Product>
 		<AssemblyVersion>1.0.62</AssemblyVersion>
-		<Version>1.5</Version>
+		<Version>1.6</Version>
 		<Copyright>$([System.DateTime]::Now.ToString('yyyy'))</Copyright>
 		<Company>Owlchemist</Company>
 		<TargetFramework>net48</TargetFramework>
@@ -18,7 +18,7 @@
 		<DebugType>None</DebugType>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<OutputPath>..\..\..\Mods\$(Product)\$(Version)\Assemblies</OutputPath>
+		<OutputPath>obj\Debug</OutputPath>
 		<DefineConstants>TRACE;DEBUG;NETFRAMEWORK;NET48;</DefineConstants>
 	</PropertyGroup>
 	<ItemGroup>
@@ -31,7 +31,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.*" />
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4515-beta" />
 	</ItemGroup>
 	<ItemGroup>
 		<Publicize Include="Assembly-CSharp" />
