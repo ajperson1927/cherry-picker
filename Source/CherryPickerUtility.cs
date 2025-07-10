@@ -115,7 +115,7 @@ namespace CherryPicker
 					.Concat(DefDatabase<InteractionDef>.AllDefs)
 					.Concat(DefDatabase<DefList>.AllDefs)
 					.Concat(GetDefFromMod(packageID: "vanillaexpanded.vfea", assemblyName: "VFEAncients", nameSpace: "VFEAncients", typeName: "PowerDef"))
-					.Concat(GetDefFromMod(packageID: "oskarpotocki.vanillafactionsexpanded.core", assemblyName:"VFECore", nameSpace:"VFECore.Abilities", typeName:"AbilityDef")
+					.Concat(GetDefFromMod(packageID: "oskarpotocki.vanillafactionsexpanded.core", assemblyName:"VEF", nameSpace:"VEF.Abilities", typeName:"AbilityDef")
                        .Where(x => x.modExtensions.Any(e => e.GetType().Namespace == "VanillaPsycastsExpanded")))?
                     .Concat(GetDefFromMod(packageID: "vanillaexpanded.vpsycastse", assemblyName: "VanillaPsycastsExpanded", nameSpace: "VanillaPsycastsExpanded", typeName: "PsycasterPathDef"))
 					.Distinct() //Some dynamically generated defs can seemingly caused dupes
