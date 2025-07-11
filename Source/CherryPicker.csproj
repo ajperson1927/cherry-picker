@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{A2E4DFD9-793D-4C6E-A4F3-4E37F3B011D9}</ProjectGuid>
 		<Product>Cherry Picker</Product>
 		<AssemblyVersion>1.0.62</AssemblyVersion>
 		<Version>1.6</Version>

@@ -924,7 +924,7 @@ namespace CherryPicker
 					}
 				}
 			}
-
+			
 			//Processes recipes using removed items
 			var recipeDefList = DefDatabase<RecipeDef>.defsList;
 			for (int i = recipeDefList.Count; i-- > 0;)
@@ -949,7 +949,7 @@ namespace CherryPicker
 				recipeDef.defaultIngredientFilter?.thingDefs?.RemoveAll(x => processedDefs.Contains(x));
 				recipeDef.defaultIngredientFilter?.allowedDefs?.RemoveWhere(x => processedDefs.Contains(x));
 			}
-
+			
 			//Process various references within thingDefs
 			var thingDefList = DefDatabase<ThingDef>.defsList;
 			for (int i = thingDefList.Count; i-- > 0;)
@@ -1014,6 +1014,7 @@ namespace CherryPicker
 			Type extensionType = null;
             AccessTools.FieldRef<DefModExtension, object> getUnlockData = null;
             AccessTools.FieldRef<object, Def> getPath = null;
+			
 			//If we changed paths, we need to ensure they are properly removed from spawning
             if (processPsycastPaths)
             {
@@ -1032,7 +1033,7 @@ namespace CherryPicker
                 getUnlockData = AccessTools.FieldRefAccess<object>(extensionType, "unlockedPaths");
                 getPath = AccessTools.FieldRefAccess<Def>(pathUnlockDataType, "path");
             }
-
+			
             //Process pawnkinds that reference this item
 			var pawnKindDefList = DefDatabase<PawnKindDef>.defsList;
 			for (int i = pawnKindDefList.Count; i-- > 0;)
@@ -1064,7 +1065,7 @@ namespace CherryPicker
                     }
                 }
 			}
-
+			
 			//Processes biomes
 			var biomeDefList = DefDatabase<BiomeDef>.defsList;
 			for (int i = biomeDefList.Count; i-- > 0;)
@@ -1108,7 +1109,7 @@ namespace CherryPicker
 				{
 					foreach (GenStep_ScatterGroup.ScatterGroup scatterGroup in genStep_ScatterGroup.groups)
 					{
-						scatterGroup.things.RemoveAll(x => processedDefs.Contains(x.thing));
+						scatterGroup.things?.RemoveAll(x => processedDefs.Contains(x.thing));
 					}
 				}
 				if (genStep is GenStep_ScatterThings genStep_ScatterThings && processedDefs.Contains(genStep_ScatterThings.thingDef))
@@ -1180,7 +1181,7 @@ namespace CherryPicker
 					}
 				}
 			}
-
+			
 			//Processes styles and Precepts (Ideology)
 			if (ModLister.IdeologyInstalled)
 			{
@@ -1218,7 +1219,7 @@ namespace CherryPicker
 					}
 				}
 			}
-
+			
 			//Process designation removals
 			if (processDesignators)
 			{
@@ -1241,7 +1242,7 @@ namespace CherryPicker
 					}
 				}
 			}
-
+			
 			//Process body types from the backstory db
 			if (processBodyTypes)
 			{
@@ -1254,7 +1255,7 @@ namespace CherryPicker
 					if (processedDefs.Contains(backstory.bodyTypeGlobal)) backstory.bodyTypeGlobal = null;
 				}
 			}
-
+			
 			//Process terrain
 			if (processTerrain)
 			{
@@ -1312,7 +1313,7 @@ namespace CherryPicker
 					}
 				}
 			}
-
+			
 			//Need to remove psycasts from the cache in the ITab
             if (processPsycastPaths)
             {
